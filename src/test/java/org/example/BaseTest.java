@@ -9,7 +9,6 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +29,8 @@ public class BaseTest {
             desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
             desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.m.qr.home.main.ui.HomeActivity");
             desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.m.qr");
+            desiredCapabilities.setCapability("autoAcceptAlerts", true);
+            desiredCapabilities.setCapability("autoDismissAlerts", true);
             desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,3000);
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
             appiumDriver = new AndroidDriver(url,desiredCapabilities);
@@ -39,7 +40,6 @@ public class BaseTest {
         }
 
     }
-
     @AfterScenario
     public void afterSenaryo() {
     appiumDriver.quit();

@@ -8,18 +8,22 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import java.time.Duration;
+import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
+import java.util.List;
+import java.util.Random;
 
 
 public class StepImplementation extends BaseTest {
+    String randomFlight;
 
     @Step("<second> saniye kadar bekle")
     public void waitForSecond(int second) throws InterruptedException {
         Thread.sleep(1000*second);
     }
 
-    @Step("Decline ediyorum butonuna bas")
+    @Step("Decline butonuna bas")
     public void clickDeclinebutton() throws InterruptedException {
         if (appiumDriver.findElement(By.id("com.m.qr:id/push_consent_decline")).isDisplayed()){
             appiumDriver.findElement(By.id("com.m.qr:id/push_consent_decline")).click();
@@ -44,19 +48,52 @@ public class StepImplementation extends BaseTest {
         logger.info(element+"elemente tıklandı");
     }
 
-    @Step("<xpath> li elementi bul ve <key> değerini yaz")
+    @Step("<xpath> xpath'li elementi bul ve <key> degerini yaz")
     public void sendkeyElementByXpath(String xpath,String key){
         MobileElement element = appiumDriver.findElement(By.xpath(xpath));
         element.sendKeys(key);
         logger.info(element+"element'e tıklandı");
     }
 
+    @Step("<id> id'li elementi bul ve <key> degerini yaz")
+    public void sendkeyElementById(String id,String key){
+        MobileElement element = appiumDriver.findElement(By.id(id));
+        element.sendKeys(key);
+        logger.info(element+"element'e tıklandı");
+    }
 
-    @Step("<xpath> li element <text> değerini içeriyor mu kontrol et")
+
+    @Step("<xpath> xpath'li element <text> degerini iceriyor mu kontrol et")
     public void assertElement(String xpath ,String text){
         MobileElement element = appiumDriver.findElement(By.xpath(xpath));
         logger.info("Alınan text değeri = "+element.getText());
         Assert.assertTrue("Element bulunamadı",element.getText().equals(text));
+        logger.info("Element bulundu ve kontrol edildi");
+    }
+
+    @Step("<id> id'li element <text> degerini iceriyor mu kontrol et")
+    public void assertElementById(String id ,String text){
+        MobileElement element = appiumDriver.findElement(By.id(id));
+        logger.info("Alınan text değeri = "+element.getText());
+        Assert.assertTrue("Element bulunamadı",element.getText().equals(text));
+        logger.info("Element bulundu ve kontrol edildi.");
+    }
+
+    @Step("Elementler <xpath> arasından rastgele bir tanesi seç ve tıkla")
+    public void clickRandomElement(String xpath){
+        Random rndm = new Random();
+        List<MobileElement> products= appiumDriver.findElements(By.xpath(xpath));
+        int index = rndm.nextInt(products.size());
+        MobileElement element = products.get(index).findElement(By.xpath("[@resource-id='com.m.qr:id/rvmp_departure_time']"));
+        randomFlight = element.getText();
+        element.click();
+
+    }
+
+    public void assertTimes() {
+        MobileElement e = appiumDriver.findElement(By.id("com.m.qr:id/from_time"));
+        Assert.assertEquals("Ucus saatleri birbirinden farkli bulundu.", e.getText().trim(), randomFlight);
+        logger.info("ucus saatleri karsilastirildi ve dogrulandi.");
     }
 
     @Step("Swipe Et")
