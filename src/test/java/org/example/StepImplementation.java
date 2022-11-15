@@ -2,15 +2,8 @@ package org.example;
 
 import com.thoughtworks.gauge.Step;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
@@ -75,7 +68,7 @@ public class StepImplementation extends BaseTest {
     public void assertElementById(String id ,String text){
         MobileElement element = appiumDriver.findElement(By.id(id));
         logger.info("Alınan text değeri = "+element.getText());
-        Assert.assertTrue("Element bulunamadı",element.getText().equals(text));
+        Assert.assertTrue("Element bulunamadı",element.getText().trim().equals(text));
         logger.info("Element bulundu ve kontrol edildi.");
     }
 
@@ -84,38 +77,18 @@ public class StepImplementation extends BaseTest {
         Random rndm = new Random();
         List<MobileElement> products= appiumDriver.findElements(By.xpath(xpath));
         int index = rndm.nextInt(products.size());
-        MobileElement element = products.get(index).findElement(By.xpath("[@resource-id='com.m.qr:id/rvmp_departure_time']"));
+        MobileElement element = products.get(index).findElement(By.xpath("//*[@resource-id='com.m.qr:id/rvmp_departure_time']"));
         randomFlight = element.getText();
         element.click();
 
     }
-
+    @Step("Saat degerlerini kontrol et")
     public void assertTimes() {
         MobileElement e = appiumDriver.findElement(By.id("com.m.qr:id/from_time"));
         Assert.assertEquals("Ucus saatleri birbirinden farkli bulundu.", e.getText().trim(), randomFlight);
         logger.info("ucus saatleri karsilastirildi ve dogrulandi.");
     }
 
-    @Step("Swipe Et")
-    public void swipeScreen(){
-        final int ANIMATION_TIME = 200; // ms
-        final int PRESS_TIME = 200; // ms
-        int edgeBorder = 10; // better avoid edges
-        PointOption pointOptionStart, pointOptionEnd;
-
-        // init screen variables
-        Dimension dims = appiumDriver.manage().window().getSize();
-        System.out.println("Telefonun boyutu = " + dims);
-        pointOptionStart = PointOption.point(dims.width / 2, dims.height / 2);
-        pointOptionEnd = PointOption.point(dims.width / 2, edgeBorder);
-
-        new TouchAction(appiumDriver)
-                .press(pointOptionStart)
-                // a bit more reliable when we add small wait
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(PRESS_TIME)))
-                .moveTo(pointOptionEnd)
-                .release().perform();
-    }
 
 
 

@@ -1,0 +1,74 @@
+Created by testinium on 15.11.2022
+
+This is a concept file with following syntax for each concept.
+#Uygulamayi acilir ve karsilama ekrani "Skip" secenegi ile gecilir
+* "5" saniye kadar bekle
+* "com.m.qr:id/skip_button" id'li elemente tıkla
+* "5" saniye kadar bekle
+* "com.m.qr:id/onboarding_skip_button" id'li elemente tıkla
+* "5" saniye kadar bekle
+
+#Decline ve Close butonuna tiklanir
+* "5" saniye kadar bekle
+* Decline butonuna bas
+* "5" saniye kadar bekle
+* "com.m.qr:id/secondary_button" id'li elemente tıkla
+
+#Uygulamanin acildigi kontrol edilir
+* "com.m.qr:id/rvmp_home_inspiration_title" id'li element "Travel Inspiration" degerini iceriyor mu kontrol et
+* "5" saniye bekle
+
+# Alt menuden "Book" tabına gecis yapilir
+* "com.m.qr:id/nav_menu_book" id'li elemente tıkla
+* "5" saniye bekle
+
+# Seyatah tipi olarak One Way secilir
+* "//*[@content-desc='One-way']" xpath'li elemente tıkla
+* "5" saniye kadar bekle
+
+# Kalkis havaalani olarak Berlin secilir
+* "com.m.qr:id/rvmp_fragment_rtow_flight_selection_origin_holder" id'li elemente tıkla
+* "5" saniye kadar bekle
+* "com.m.qr:id/rvmp_fragment_ond_selection_filter_edittext" id'li elementi bul ve "Berlin" degerini yaz
+* "5" saniye kadar bekle
+* "//*[@text='BER - Berlin Brandenburg Airport']" xpath'li elemente tıkla
+* "5" saniye kadar bekle
+
+# Varis havaalani Olarak Istanbul Secilir
+* "com.m.qr:id/rvmp_fragment_rtow_flight_selection_destination_holder" id'li elemente tıkla
+* "5" saniye kadar bekle
+* "com.m.qr:id/rvmp_fragment_ond_selection_filter_edittext" id'li elementi bul ve "Istanbul" degerini yaz
+* "5" saniye kadar bekle
+* "//*[@text='IST - Istanbul Airport']" xpath'li elemente tıkla
+
+# Yedi gun sonrasi icin gidis tarihi secilir
+* "com.m.qr:id/rvmp_fragment_rtow_flight_selection_departure_date_holder" id'li elemente tıkla
+* "5" saniye kadar bekle
+* "//*[@text='20']" xpath'li elemente tıkla
+* "com.m.qr:id/fragment_calendar_confirm_button" id'li elemente tıkla
+* "5" saniye kadar bekle
+
+# Economy Class secenegine tiklanir
+* "com.m.qr:id/fragment_rtow_flight_cabin_class_text_view" id'li elemente tıkla
+* "5" saniye kadar bekle
+* "com.m.qr:id/cabin_selection_economy_row" id'li elemente tıkla
+* "5" saniye kadar bekle
+
+# Arama butonuna tiklanir
+* "com.m.qr:id/rvmp_booking_search_flights_button" id'li elemente tıkla
+* "5" saniye kadar bekle
+
+# Ucus secim ekraninin geldigi kontrol edilir
+* "com.m.qr:id/booking_activity_conversational_message" id'li element "Select your departure" degerini iceriyor mu kontrol et
+* "5" saniye kadar bekle
+
+# Rastgele ucus secilir
+* Elementler "//*[@resource-id='com.m.qr:id/rvmp_item_search_result_root_view']" arasından rastgele bir tanesi seç ve tıkla
+* "5" saniye kadar bekle
+* "com.m.qr:id/rvmp_activity_flight_details_select_button" id'li elemente tıkla
+* "7" saniye kadar bekle
+
+# Ucus secim ekranindaki ucus saati ile ucus detaylari ekranindaki ucus saati degeri ayni mi kontrol edilir
+* Saat degerlerini kontrol et
+* "5" saniye kadar bekle
+
