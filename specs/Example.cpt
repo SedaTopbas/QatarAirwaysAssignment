@@ -1,26 +1,26 @@
 Created by testinium on 15.11.2022
 
 This is a concept file with following syntax for each concept.
-#Uygulamayi acilir ve karsilama ekrani "Skip" secenegi ile gecilir
+# Uygulama acilir ve karsilama ekrani Skip secenegi ile gecilir
 * "5" saniye kadar bekle
 * "com.m.qr:id/skip_button" id'li elemente tıkla
 * "5" saniye kadar bekle
 * "com.m.qr:id/onboarding_skip_button" id'li elemente tıkla
 * "5" saniye kadar bekle
 
-#Decline ve Close butonuna tiklanir
+# Decline ve Close butonuna tiklanir
 * "5" saniye kadar bekle
 * Decline butonuna bas
 * "5" saniye kadar bekle
 * "com.m.qr:id/secondary_button" id'li elemente tıkla
 
-#Uygulamanin acildigi kontrol edilir
+# Uygulamanin acildigi kontrol edilir
 * "com.m.qr:id/rvmp_home_inspiration_title" id'li element "Travel Inspiration" degerini iceriyor mu kontrol et
-* "5" saniye bekle
+* "5" saniye kadar bekle
 
-# Alt menuden "Book" tabına gecis yapilir
+# Alt menuden Book tabına gecis yapilir
 * "com.m.qr:id/nav_menu_book" id'li elemente tıkla
-* "5" saniye bekle
+* "5" saniye kadar bekle
 
 # Seyatah tipi olarak One Way secilir
 * "//*[@content-desc='One-way']" xpath'li elemente tıkla

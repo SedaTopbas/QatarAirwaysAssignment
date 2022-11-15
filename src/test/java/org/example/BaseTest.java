@@ -26,7 +26,7 @@ public class BaseTest {
             System.out.println("Android testi başlıyor");
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
             desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-            desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+            desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "b81ade34");
             desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.m.qr.home.onboarding.ui.OnBoardingActivity");
             desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.m.qr");
             desiredCapabilities.setCapability("autoAcceptAlerts", true);

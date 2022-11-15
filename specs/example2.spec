@@ -4,10 +4,10 @@ Specification Heading
 
 QatarAirways Ucus Senaryosu
 ------
-* Uygulamayi acilir ve karsilama ekrani "Skip" secenegi ile gecilir
+* Uygulama acilir ve karsilama ekrani Skip secenegi ile gecilir
 * Decline ve Close butonuna tiklanir
 * Uygulamanin acildigi kontrol edilir
-* Alt menuden "Book" tabına gecis yapilir
+* Alt menuden Book tabına gecis yapilir
 * Seyatah tipi olarak One Way secilir
 * Kalkis havaalani olarak Berlin secilir
 * Varis havaalani Olarak Istanbul Secilir
